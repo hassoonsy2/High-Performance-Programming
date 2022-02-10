@@ -1,18 +1,25 @@
-#include <iostream> 
+#include <iostream>
+#include"Auto.hpp"
+#include"Klant.hpp"
+#pragma once
+
+using std::ostream, std::endl;
 
 class AutoHuur{
     private: 
+        Auto auto1; 
+        Klant huurder;
         int aantal_dagen;
-        Auto auto; 
-        Klant huurder; 
 
 
     public: 
-    AutoHuur(auto :Auto , huurder: Klant, dagen : int );
-    void set_aantal_dagen(d: int);
-    void set_gehuurde_auto(auto: Auto);
-    Auto get_gehuurde_auto();
-    void set_huurder(huurder : Klant);
-    Klant get_huurder();
-    double totaalprijs();
+    AutoHuur(Auto auto1, Klant huurder, int aantal_dagen);
+    void set_aantal_dagen(int aantal_dagen);
+    void set_gehuurde_auto(Auto auto1);
+    Auto get_gehuurde_auto() const;
+    void set_huurder(Klant huurder);
+    Klant get_huurder() const;
+    double totaalprijs() const;
+    friend ostream& operator<<(ostream& os,const AutoHuur& autohuur);
+
 };

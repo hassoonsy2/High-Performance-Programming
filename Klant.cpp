@@ -1,23 +1,21 @@
-#include <isostream> 
+#include <iostream> 
+#include "Klant.hpp"
 
-class Klant{
-    private: 
-        std:: string naam;
-        std:: double korting_percentage;
+Klant::Klant(std::string naam){
+    this->naam = naam;
+    };
 
-    public: 
-    void set_korting_percentage(double korting_percentage){
-            Korting_percentage = korting_percentage;
+void Klant::set_korting_percentage(double korting_percentage){
+        this->korting_percentage = korting_percentage;
+    };
 
-        }
-    Klant(string naam ){
-        Naam = naam;
-        }
+double Klant::get_korting() const{
+    return korting_percentage;
+};
 
-    get_korting(){
-        return korting_percentage;
-    }
-
+ostream& operator<<(ostream& os , const Klant& klant){
+    os <<" Klant naam :"<< klant.naam << "Met korting van : " << klant.get_korting()<<endl;
+};
 
 
-}; 
+
