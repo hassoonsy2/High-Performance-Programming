@@ -4,7 +4,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <ctime>   
+#include <ctime> 
+#include <algorithm>  
 using std::ostream, std::endl , std::string;
 using std::vector; using std::find;
 
@@ -43,7 +44,7 @@ string Game::get_naam() const{
 
 
 ostream& operator<<(ostream& os , const Game& game){
-os << game.get_naam() <<", uitgegeven in "<< get_releasejaar()<< "; nieuwprijs:" << game.get_prijs()<< " nu voor:  "<< game.get_prijs_na_korting()<< endl;
+os << game.get_naam() <<", uitgegeven in "<< game.get_releasejaar()<< "; nieuwprijs:" << game.get_prijs()<< " nu voor:  "<< game.get_prijs_na_korting()<< endl;
 };
 
 

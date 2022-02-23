@@ -21,13 +21,15 @@ int main()
     Persoon p2("Hans", 55);
     Persoon p3("Arno", 185);
     
-    // Druk de volgende transacties af (pas de code aan)
+    // Druk de volgende transacties af(pas de code aan)
     p1.koop(g1);
     p1.koop(g2);
     p1.koop(g3);
     p2.koop(g2);
+    
     p2.koop(g1);
     p3.koop(g3);
+    
     
     // Druk personen p1, p2 en p3 nu af naar de console
     

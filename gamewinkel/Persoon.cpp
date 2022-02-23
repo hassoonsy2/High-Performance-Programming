@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include "Persoon.hpp"
+#include <algorithm> 
 
 using std::ostream, std::endl , std::string;
 using std::vector; using std::find;
@@ -19,8 +20,8 @@ string Persoon::get_naam() const {
 	return naam;
 };
 
-void Persoon::set_budget(double budget) {
-	budget = budget;
+void Persoon::set_budget(double b) {
+	budget = b;
 };
 
 double Persoon::get_budget() const {
@@ -29,45 +30,36 @@ double Persoon::get_budget() const {
 
 vector<Game> Persoon::getGames() const {
 	return games;
-}; 
+};
 
+void Persoon::set_game(Game g){
+	games.push_back(g);
 
-
-
-static Persoon::koop(Game game){
-	if(*find(games.begin(), games.end(), game)!= game && Persoon.get_budget() >= game.get_prijs_na_korting()) {
-		games.push_back(game);
-
-		std::cout << "Gelukt ";
-	}
-
-	else
-	{
-		std::cout << "Niet gelukt";
-		
-	}
 };
 
 
+void Persoon::koop(Game game){
+	if(*find(games.begin(), games.end(), game.get_naam())!= game.get_naam() && get_budget() >= game.get_prijs_na_korting()) {
+		games.push_back(game);
+		std::cout << "Gelukt ";}
+	else
+	{
+		std::cout << "Niet gelukt";
+	}
+};
 
-static Persoon::verkoop(Game g, Persoon koper){
+void Persoon::verkoop(Game g, Persoon koper){
 
-	if(*find(koper.games.begin(), koper.games.end(), g) != g && koop.budget >= g.get_prijs_na_korting()){
-		koper.koop(g);
+	if(*find(koper.games.begin(), koper.games.end(), g.get_naam()) != g.get_naam() && koper.get_budget() >= g.get_prijs_na_korting()){
+		koper.set_game(g);
 		games.erase(g);
 		std::cout << "Gelukt ";
 	}
 	else{
-		std::cout << "Niet gelukt ";
-		
-
-	}
-
-
-
+		std::cout << "Niet gelukt ";}
 };
 
 ostream& operator<<(ostream& os , const Persoon& persoon){
-os << persoon.get_naam() <<" heeft een budget van  "<< persoon.get_budget()<< "en bezit de volgende games:" <<persoon.getGames()<<endl;
+os << persoon.get_naam() <<" heeft een budget van  "<< persoon.get_budget()<< "en bezit de volgende games:"<< persoon.getGames()<<endl;
 };
 

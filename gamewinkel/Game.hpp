@@ -3,7 +3,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <ctime>   
+#include <ctime>
+#include <algorithm> 
 using std::ostream, std::endl , std::string;
 using std::vector; using std::find;
 
