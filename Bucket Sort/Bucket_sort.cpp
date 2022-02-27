@@ -3,7 +3,9 @@
 #include <iostream> 
 using std::cout; 
 using std::cin; 
-using std::endl; 
+using std::endl;
+
+
  void BucketSort::internalBucketSort(int * array, int entries, int digit, int places) {
     int array_index, digit_index, bucket_index, gather_index;
     Bucket ** bucket = new Bucket *[10];
