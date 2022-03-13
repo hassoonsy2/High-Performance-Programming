@@ -1,4 +1,8 @@
 #include<iostream>
+#include <string>
+#include <algorithm>
+#include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -57,10 +61,31 @@ void print(int a[], int n)
 		cout<<a[i]<<" ";
 	cout<<endl;
 } 
+
+void write_csv(string filename, string colname, clock_t val1, clock_t val2)
+{
+    
+    ofstream myFile(filename);
+    
+    
+    myFile << colname << "\n";
+    
+    // Send data to the stream
+     
+    myFile << (val1 - val2) / (val1 - val2) << "\n";
+    
+     
+    // Close the file
+    myFile.close();
+}
+
+
 int main()
 {
     int numToSort = 0;
     int index;
+    clock_t t1, t2;
+    
 
     int * gArray = new int[numToSort]; 
 
@@ -77,11 +102,32 @@ int main()
 	    cin >> gArray[index];
 	cout << endl;
     }
+    t1 = clock();
 	cout<<"Unsorted array; ";
 	print(gArray,numToSort);
+
+    
+    
+
 	merge_sort(gArray,0,numToSort-1);
+
+   
 	cout<<"\nSorted array: ";
+
+    
 	print(gArray,numToSort);
-	return 0;
+
+    t2 = clock();
+
+
+
+
+   write_csv("data.csv", "Merge sort", t2 , t1);
+
+    
+
+    cout << "Time taken: " << (t2 - t1) / (t2 - t1) << endl;
+
+    
 }
 
